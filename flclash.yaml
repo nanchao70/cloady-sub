@@ -1,0 +1,58 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+external-controller: 127.0.0.1:9090
+dns:
+  enable: true
+  ipv6: false
+  default-nameserver:
+    - 223.5.5.5
+    - 8.8.8.8
+  nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+
+proxies:
+  - name: xray-usw1 剩余约9.9GB 试用到12-06
+    type: vless
+    server: xray-ek07rt6c-workspace-pjz33u.cloady.io
+    port: 443
+    uuid: 10a9d5e3-0f54-4a6b-abb7-6ee1cb2fbd7a
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: xray-ek07rt6c-workspace-pjz33u.cloady.io
+    network: ws
+    ws-opts:
+      path: /ws
+      headers:
+        Host: xray-ek07rt6c-workspace-pjz33u.cloady.io
+  - name: xray-usw1-2 FREE 剩余约10GB
+    type: vless
+    server: xray-c4t3o68x-workspace-adbith.cloady.io
+    port: 443
+    uuid: 49d90fd7-b0f7-49eb-8db9-ac9764c9c335
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: xray-c4t3o68x-workspace-adbith.cloady.io
+    network: ws
+    ws-opts:
+      path: /ws
+      headers:
+        Host: xray-c4t3o68x-workspace-adbith.cloady.io
+
+proxy-groups:
+  - name: PROXY
+    type: select
+    proxies:
+      - xray-usw1 剩余约9.9GB 试用到12-06
+      - xray-usw1-2 FREE 剩余约10GB
+      - DIRECT
+
+rules:
+  - MATCH,PROXY
