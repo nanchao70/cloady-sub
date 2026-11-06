@@ -30,7 +30,7 @@ proxies:
       path: /ws
       headers:
         Host: xray-ek07rt6c-workspace-pjz33u.cloady.io
-  - name: xray-usw1-2 FREE 剩余约10GB
+  - name: xray-usw1-2 FREE 剩余约9.94GB
     type: vless
     server: xray-c4t3o68x-workspace-adbith.cloady.io
     port: 443
@@ -51,7 +51,7 @@ proxy-groups:
     type: select
     proxies:
       - xray-usw1 剩余约9.9GB 试用到12-06
-      - xray-usw1-2 FREE 剩余约10GB
+      - xray-usw1-2 FREE 剩余约9.94GB
       - DIRECT
 
 rules:
